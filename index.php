@@ -1,6 +1,6 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
+<?php include 'includes/connection.php'; ?>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-6">
 				
-						<h1 id="reg"><a href="index.html" title=>BabyRegister</a></h1>
+						<h1 id="reg"><a href="index.php" title=>BabyRegister</a></h1>
 
 				</div>
 				<nav class="col-lg-9 col-6">
@@ -45,7 +45,7 @@
 					<div class="main-menu">
 						<ul>
 							<li class="submenu">
-								<a href="#0" class="show-submenu">Home<i class="icon"></i></a>
+								<a href="index.php" class="show-submenu">Home<i class="icon"></i></a>
 							</li>
 							<li class="submenu">
 								<a href="#0" class="show-submenu">Sevices<i class="icon"></i></a>
@@ -114,7 +114,7 @@
 				</div>
 			</div>
 			<!-- /row -->
-			<p class="text-center"><a href="list.html" class="btn_1 medium">Register a child</a></p>
+			<p class="text-center"><a href="register.php" class="btn_1 medium">Register a child</a></p>
 
 		</div>
 		<!-- /container -->
@@ -147,7 +147,7 @@
 					<h5>Contact with Us</h5>
 					<ul class="contacts">
 						<li><a href="tel:"><i class="icon_mobile"></i> + 234 80 6647 8898</a></li>
-						<li><a href="maii"><i class="icon_mail_alt"></i> |babyregister@gmail.com</a></li>
+						<li><a href="maii"><i class="icon_mail_alt"></i> babyregister@.com</a></li>
 					</ul>
 					<div class="follow_us">
 						<h5>Follow us</h5>

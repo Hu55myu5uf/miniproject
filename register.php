@@ -36,7 +36,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-6">
 				
-						<h1 id="reg"><a href="index.html" title=>BabyRegister</a></h1>
+						<h1 id="reg"><a href="index.php" title=>BabyRegister</a></h1>
 
 				</div>
 				<nav class="col-lg-9 col-6">
@@ -45,7 +45,7 @@
 					<div class="main-menu">
 						<ul>
 							<li class="submenu">
-								<a href="#0" class="show-submenu">Home<i class="icon"></i></a>
+								<a href="index.php" class="show-submenu">Home<i class="icon"></i></a>
 							</li>
 							<li class="submenu">
 								<a href="#0" class="show-submenu">Sevices<i class="icon"></i></a>
