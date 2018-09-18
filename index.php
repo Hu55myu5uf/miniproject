@@ -1,12 +1,10 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Find easily a doctor and book online an appointment">
-	<meta name="author" content="Ansonika">
 	<title>BabyRegister</title>
 
 	<!-- Favicons-->
@@ -65,7 +63,67 @@
 	</header>
 	<!-- /header -->
 	
+	<main>
+		<div class="hero_home version_1">
+			<div class="content">
+				<h3>Register a Child!</h3>
+				<p>
+					Register and Generate a Birth Certificate for your child
+				</p>
+			<a class="btn" href="register.php">
+			<button class="btn btn-info" type="submit">REGISTER A BABY</button>
+			</a>
+			<br><br>
+			<div id="custom-search-input">
+				<div class="input-group">
+					<input type="text" class=" search-query" placeholder="Search Baby Details by ID">
+					<input type="submit" class="btn_search" value="Search">
+				</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Hero -->
 
+		<div class="container margin_120_95">
+			<div class="main_title">
+				<h2>ADVANTAGES OF  <strong>REGISTERING</strong>YOUR CHILD WITH US!</h2>
+				<p>Our Website Made it easy for our customers to register and generate birth certificate for thier new born Babies.
+					Also Search for an existing birth certificate when needed!
+				</p>
+			</div>
+			<div class="row add_bottom_30">
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_1">
+						<span></span>
+						<h3>Click on Register a Child</h3>
+						<p>Text.......</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_2">
+						<span></span>
+						<h3>Fill Birth Registration Form</h3>
+						<p>Text.......</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_3">
+						<h3>Generate Birth Certificate</h3>
+						<p>Text.......</p>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+			<p class="text-center"><a href="list.html" class="btn_1 medium">Register a child</a></p>
+
+		</div>
+		<!-- /container -->
+
+		<!-- /white_bg -->
+
+	
+		<!-- /app_section -->
+	</main>
 	<!-- /main content -->
 	
 	<footer>
@@ -82,7 +140,7 @@
 					<h5>About</h5>
 					<ul class="links">
 						<li><a href="#0">About us</a></li>
-						<li><a href="login.html">Login</a></li>
+						<li><a href="login.php">Login</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-3 col-md-4">
