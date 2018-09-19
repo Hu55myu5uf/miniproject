@@ -1,9 +1,9 @@
 <?php
 
 $server = 'localhost';
-$username = 'hussmyusuf';
+$username = 'root';
 $password = '';
-$db='BabyRegister';
+$db='baby';
 $conn = mysqli_connect($server, $username, $password,$db) or die("Failed to connect");
 
 
