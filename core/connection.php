@@ -4,12 +4,8 @@ $server = 'localhost';
 $username = 'hussmyusuf';
 $password = '';
 $db='BabyRegister';
-$conn = mysqli_connect($server, $username, $password);
+$conn = mysqli_connect($server, $username, $password,$db) or die("Failed to connect");
 
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
 
 ?>
