@@ -2,6 +2,39 @@
 include 'core/connection.php'; 
 include 'includes/head.inc.php';
 
+if(isset($_POST['submit']))
+{
+    $sqlb = "INSERT INTO `child`(`id`, `last_name`, `first_name`, `middle_name`, `dob`, 
+    `place_of_occurance`, `local_government`, `state`, `gender`, `weight`, `delivery_time`) VALUES
+     ('".$_POST[""]."','".$_POST["lastname"]."','".$_POST["firstname"]."','".$_POST["middlename"]."',
+     '".$_POST["dob"]."','".$_POST["poc"]."','".$_POST["lga"]."',
+     '".$_POST["state"]."','".$_POST["gender"]."','".$_POST["weight"]."','".$_POST["dt"]."')";
+
+
+    $sqlm = "INSERT INTO `mother`(`id`, `child_id`, `last_name`, `first_name`, `middle_name`, 
+     `age`, `marital_status`, `Nationality`, `state`, `tribe`, `occupation`, 
+     `phone_number`, `address`) VALUES ('".$_POST[""]."','".$_POST[""]."',
+     '".$_POST["lastname"]."','".$_POST["firstname"]."',
+     '".$_POST["middlename"]."','".$_POST["aaboc"]."','".$_POST["status"]."',
+     '".$_POST["nationality"]."','".$_POST["origin"]."',
+     '".$_POST["tribe"]."','".$_POST["occupation"]."','".$_POST["phone"]."','".$_POST["address"]."')";
+
+
+     $sqlf = "INSERT INTO `father`(`id`, `child_id`, `last_name`, `first_name`, `middle_name`, 
+     `age`, `marital_status`, `Nationality`, `state`, `tribe`, `occupation`, 
+     `phone_number`, `address`) VALUES ('".$_POST[""]."','".$_POST[""]."',
+     '".$_POST["lastname"]."','".$_POST["firstname"]."',
+     '".$_POST["middlename"]."','".$_POST["aaboc"]."','".$_POST["status"]."',
+     '".$_POST["nationality"]."','".$_POST["origin"]."',
+     '".$_POST["tribe"]."','".$_POST["occupation"]."','".$_POST["phone"]."','".$_POST["address"]."')";
+
+
+    $babygen = mysql_query($conn,$sqlb);
+    $babygen = mysql_query($conn,$sqlm);
+    $babygen = mysql_query($conn,$sqlf);
+
+}
+
 
 ?>
 
@@ -45,7 +78,7 @@ include 'includes/head.inc.php';
 	</header>
 	<!-- /header -->
 	
-
+<form method="post">
     <div class="container">
             <div id="accordion">
                 <div class="row">
@@ -71,26 +104,26 @@ include 'includes/head.inc.php';
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Last Name</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="lastname" />
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">First Name</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="firstname" />
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Middle Name</label>
-                                        <input class="form-control" type="text" />
+                                        <input class="form-control" type="text" name="middlename" />
                                     </div>
                                 </div>
                                     
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="control-label">Date Of Birth</label>
-                                        <input class="form-control" type="date"/>
+                                        <input class="form-control" type="date" name="dob" />
                                         <div class="input-group date">
                                         </div>
                                     </div>
@@ -101,7 +134,7 @@ include 'includes/head.inc.php';
                                 <div class="col-md-4 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Place of Occurance</label>
-                                        <select type="list" class="form-control">
+                                        <select type="list" class="form-control" name="poc">
                                             <option>Hospital</option>
                                             <option>Maternity Home</option>  
                                             <option>Home</option> 
@@ -113,21 +146,21 @@ include 'includes/head.inc.php';
                                 <div class="col-md-2 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Local Government</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="lga" />
                                     </div>
                                 </div>
             
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">State</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="state" />
                                     </div>
                                 </div>
             
                                 <div class="col-md-3 col-lg-2">
                                     <div class="form-group">
                                         <label class="control-label">Gender</label>
-                                        <select type="text" class="form-control">
+                                        <select type="text" class="form-control" name="gender">
                                             <option>Male</option>
                                             <option>Female</option> 
                                         </select>
@@ -139,14 +172,14 @@ include 'includes/head.inc.php';
                                 <div class="col-md-3 col-lg-2">
                                     <div class="form-group">
                                         <label class="control-label">Weight of Baby</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="weight" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-lg-2">
                                     <div class="form-group">
                                         <label class="control-label">Delivery Time</label>
-                                        <input type="time" class="form-control" />
+                                        <input type="time" class="form-control" name="dt" />
                                     </div>
                                 </div>
                             </div>
@@ -170,28 +203,28 @@ include 'includes/head.inc.php';
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Last Name</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="lastname" />
                                     </div>
                                 </div>
             
                                 <div class="col-md-4 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">First Name</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="firstname" />
                                     </div>
                                 </div>
             
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Middle Name</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="middlename" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-lg-3">
                                         <div class="form-group">
                                             <label class="control-label">Age at Birth of Child</label>
-                                            <input type="number" class="form-control" />
+                                            <input type="number" class="form-control" name="aaboc" />
                                         </div>
                                 </div>
             
@@ -201,7 +234,7 @@ include 'includes/head.inc.php';
                                 <div class="col-md-2 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Marrital Status</label>
-                                        <select type="text" class="form-control">
+                                        <select type="text" class="form-control" name="status">
                                             <option>Single</option>
                                             <option>Married</option>
                                             <option>Separated</option>
@@ -214,7 +247,7 @@ include 'includes/head.inc.php';
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Nationality</label>
-                                        <select type="text" class="form-control">
+                                        <select type="text" class="form-control" name="nationality">
                                             <option>Nigerian</option>
                                             <option>Non-Nigerian</option>
                                         </select>
@@ -224,14 +257,14 @@ include 'includes/head.inc.php';
                                 <div class="col-md-4 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">State of Origin</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="origin" />
                                     </div>
                                 </div>
             
                                 <div class="col-md-4 col-lg-3">
                                         <div class="form-group">
                                             <label class="control-label">Tribe/Ethnicity</label>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" class="form-control" name="tribe" />
                                         </div>
                                     </div>
 
@@ -241,21 +274,21 @@ include 'includes/head.inc.php';
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Occupation</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="occupation" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-lg-3">
                                         <div class="form-group">
                                             <label class="control-label">Phone Number</label>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" class="form-control" name="phone" />
                                         </div>
                                     </div>
 
                                 <div class="col-md-5 col-lg-6">
                                     <div class="form-group">
                                         <label class="control-label">Home of Residence Address</label>
-                                        <textarea type="text" class="form-control"></textarea>
+                                        <textarea type="text" class="form-control" name="address"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -280,28 +313,28 @@ include 'includes/head.inc.php';
                                         <div class="col-md-3 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Last Name</label>
-                                                <input type="text" class="form-control" />
+                                                <input type="text" class="form-control" name="lastname" />
                                             </div>
                                         </div>
                     
                                         <div class="col-md-4 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">First Name</label>
-                                                <input type="text" class="form-control" />
+                                                <input type="text" class="form-control" name="firstname" />
                                             </div>
                                         </div>
                     
                                         <div class="col-md-3 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Middle Name</label>
-                                                <input type="text" class="form-control" />
+                                                <input type="text" class="form-control" name="middlename" />
                                             </div>
                                         </div>
         
                                         <div class="col-md-3 col-lg-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Age</label>
-                                                    <input type="number" class="form-control" />
+                                                    <input type="number" class="form-control" name="age" />
                                                 </div>
                                         </div>
                     
@@ -311,7 +344,7 @@ include 'includes/head.inc.php';
                                         <div class="col-md-2 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Marrital Status</label>
-                                                <select type="text" class="form-control">
+                                                <select type="text" class="form-control" name="status">
                                                     <option>Single</option>
                                                     <option>Married</option>
                                                     <option>Separated</option>
@@ -324,7 +357,7 @@ include 'includes/head.inc.php';
                                         <div class="col-md-3 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Nationality</label>
-                                                <select type="text" class="form-control">
+                                                <select type="text" class="form-control" name="nationality">
                                                     <option>Nigerian</option>
                                                     <option>Non-Nigerian</option>
                                                 </select>
@@ -334,14 +367,14 @@ include 'includes/head.inc.php';
                                         <div class="col-md-4 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">State of Origin</label>
-                                                <input type="text" class="form-control" />
+                                                <input type="text" class="form-control" name="origin" />
                                             </div>
                                         </div>
                     
                                         <div class="col-md-4 col-lg-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Tribe/Ethnicity</label>
-                                                    <input type="text" class="form-control" />
+                                                    <input type="text" class="form-control" name="tribe" />
                                                 </div>
                                             </div>
         
@@ -351,21 +384,21 @@ include 'includes/head.inc.php';
                                         <div class="col-md-3 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Occupation</label>
-                                                <input type="text" class="form-control" />
+                                                <input type="text" class="form-control" name="occupation" />
                                             </div>
                                         </div>
         
                                         <div class="col-md-3 col-lg-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Phone Number</label>
-                                                    <input type="text" class="form-control" />
+                                                    <input type="text" class="form-control" name="phone" />
                                                 </div>
                                             </div>
         
                                         <div class="col-md-5 col-lg-6">
                                             <div class="form-group">
                                                 <label class="control-label">Home of Residence Address</label>
-                                                <textarea type="text" class="form-control"></textarea>
+                                                <textarea type="text" class="form-control" name="address"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -380,12 +413,13 @@ include 'includes/head.inc.php';
             <div class="row">
                 <div class="col-md-6 col-lg-12">
                     <div class="pull-right">
-                        <a href="#" class="btn btn-info" id="btnSubmit"><i class="fa fa-save"></i>Submit</a>
-                        <a href="#" class="btn btn-info" id="btnGenerate"><i class="fa fa-save"></i> Generate Birth Certificate</a>
+                        <input type="submit" name="submit" value="Submit" class="btn btn-info" id="btnSubmit">
+                        <input type="submit" name="submit" value="Generate Birth Certificate" class="btn btn-info" id="btnGenerate">
                     </div>
                 </div>
             </div>
             </div>
+</form>
 
 
 
