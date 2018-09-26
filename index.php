@@ -1,8 +1,8 @@
 
 <?php 
+
 include 'core/connection.php'; 
 include 'includes/head.inc.php';
-
 
 ?>
 

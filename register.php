@@ -4,34 +4,68 @@ include 'includes/head.inc.php';
 
 if(isset($_POST['submit']))
 {
+
+
+   $sql = "INSERT INTO `babyregister`(`s/n`, `id`, `last_name`, `first_name`, `middle_name`, `dob`, `poc`, 
+   `lga`, `state`, `gender`, `weight`, `delivery_time`, `mlast_name`, `mfirst_name`, `mmiddle_name`, 
+   `mage`, `mstatus`, `mnationality`, `morigin`, `mtribe`, `moccupation`, `mphone`, `maddress`, `flast_name`, 
+   `ffirst_name`, `fmiddle_name`, `fage`, `fstatus`, `fnationality`, `forigin`, `ftribe`, `foccupation`, `fphone`, 
+   `faddress`) VALUES 
+   (NULL,NULL,'".$_POST["ln"]."','".$_POST["fn"]."','".$_POST["mn"]."','".$_POST["dob"]."','".$_POST["poc"]."',
+   '".$_POST["lga"]."','".$_POST["state"]."','".$_POST["gender"]."','".$_POST["weight"]."','".$_POST["dt"]."',
+   '".$_POST["mln"]."','".$_POST["mfn"]."','".$_POST["mmn"]."','".$_POST["aaboc"]."','".$_POST["mstatus"]."',
+   '".$_POST["mnationality"]."','".$_POST["morigin"]."','".$_POST["mtribe"]."','".$_POST["moccupation"]."','".$_POST["mphone"]."',
+   '".$_POST["maddress"]."','".$_POST["fln"]."','".$_POST["ffn"]."','".$_POST["fmn"]."','".$_POST["fage"]."',
+   '".$_POST["fstatus"]."','".$_POST["fnationality"]."','".$_POST["forigin"]."','".$_POST["ftribe"]."','".$_POST["foccupation"]."',
+   '".$_POST["fphone"]."','".$_POST["faddress"]."')";
+
+
+   $run_query = mysqli_query($conn,$sql);
+
+
+
+    /*
     $sqlb = "INSERT INTO `child`(`id`, `last_name`, `first_name`, `middle_name`, `dob`, 
     `place_of_occurance`, `local_government`, `state`, `gender`, `weight`, `delivery_time`) VALUES
-     ('".$_POST[""]."','".$_POST["lastname"]."','".$_POST["firstname"]."','".$_POST["middlename"]."',
+     (NULL,'".$_POST["ln"]."','".$_POST["fn"]."','".$_POST["mn"]."',
      '".$_POST["dob"]."','".$_POST["poc"]."','".$_POST["lga"]."',
      '".$_POST["state"]."','".$_POST["gender"]."','".$_POST["weight"]."','".$_POST["dt"]."')";
 
-
+    
     $sqlm = "INSERT INTO `mother`(`id`, `child_id`, `last_name`, `first_name`, `middle_name`, 
      `age`, `marital_status`, `Nationality`, `state`, `tribe`, `occupation`, 
-     `phone_number`, `address`) VALUES ('".$_POST[""]."','".$_POST[""]."',
-     '".$_POST["lastname"]."','".$_POST["firstname"]."',
-     '".$_POST["middlename"]."','".$_POST["aaboc"]."','".$_POST["status"]."',
+     `phone_number`, `address`) VALUES (NULL,'".$_POST["fn"]."',
+     '".$_POST["mln"]."','".$_POST["mfn"]."',
+     '".$_POST["mmn"]."','".$_POST["aaboc"]."','".$_POST["status"]."',
      '".$_POST["nationality"]."','".$_POST["origin"]."',
      '".$_POST["tribe"]."','".$_POST["occupation"]."','".$_POST["phone"]."','".$_POST["address"]."')";
 
 
      $sqlf = "INSERT INTO `father`(`id`, `child_id`, `last_name`, `first_name`, `middle_name`, 
      `age`, `marital_status`, `Nationality`, `state`, `tribe`, `occupation`, 
-     `phone_number`, `address`) VALUES ('".$_POST[""]."','".$_POST[""]."',
-     '".$_POST["lastname"]."','".$_POST["firstname"]."',
-     '".$_POST["middlename"]."','".$_POST["aaboc"]."','".$_POST["status"]."',
+     `phone_number`, `address`) VALUES (NULL,'".$_POST["fn=".$_POST["fln"]."','".$_POST["ffn"]."',
+     '".$_POST["fmn"]."','".$_POST["aaboc"]."','".$_POST["status"]."',
      '".$_POST["nationality"]."','".$_POST["origin"]."',
      '".$_POST["tribe"]."','".$_POST["occupation"]."','".$_POST["phone"]."','".$_POST["address"]."')";
+    
 
+    
 
-    $babygen = mysql_query($conn,$sqlb);
-    $babygen = mysql_query($conn,$sqlm);
-    $babygen = mysql_query($conn,$sqlf);
+    $run_query = mysqli_query($conn,$sqlb);
+    $run_query = mysqli_query($conn,$sqlm);
+    $run_query = mysqli_query($conn,$sqlf);
+    */
+
+    if (!$run_query){
+      
+        echo "<script>alert('Invalid Database Insertion')</script>";
+    }   
+    else{
+        echo "<script>alert('Submitted')</script>";
+    }
+
+   // $babygen = mysql_query($conn,$sqlm);
+   // $babygen = mysql_query($conn,$sqlf);
 
 }
 
@@ -104,19 +138,19 @@ if(isset($_POST['submit']))
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Last Name</label>
-                                        <input type="text" class="form-control" name="lastname" />
+                                        <input type="text" class="form-control" name="ln" />
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">First Name</label>
-                                        <input type="text" class="form-control" name="firstname" />
+                                        <input type="text" class="form-control" name="fn" />
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Middle Name</label>
-                                        <input class="form-control" type="text" name="middlename" />
+                                        <input class="form-control" type="text" name="mn" />
                                     </div>
                                 </div>
                                     
@@ -203,21 +237,21 @@ if(isset($_POST['submit']))
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Last Name</label>
-                                        <input type="text" class="form-control" name="lastname" />
+                                        <input type="text" class="form-control" name="mln" />
                                     </div>
                                 </div>
             
                                 <div class="col-md-4 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">First Name</label>
-                                        <input type="text" class="form-control" name="firstname" />
+                                        <input type="text" class="form-control" name="mfn" />
                                     </div>
                                 </div>
             
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Middle Name</label>
-                                        <input type="text" class="form-control" name="middlename" />
+                                        <input type="text" class="form-control" name="mmn" />
                                     </div>
                                 </div>
 
@@ -234,7 +268,7 @@ if(isset($_POST['submit']))
                                 <div class="col-md-2 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Marrital Status</label>
-                                        <select type="text" class="form-control" name="status">
+                                        <select type="text" class="form-control" name="mstatus">
                                             <option>Single</option>
                                             <option>Married</option>
                                             <option>Separated</option>
@@ -247,7 +281,7 @@ if(isset($_POST['submit']))
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Nationality</label>
-                                        <select type="text" class="form-control" name="nationality">
+                                        <select type="text" class="form-control" name="mnationality">
                                             <option>Nigerian</option>
                                             <option>Non-Nigerian</option>
                                         </select>
@@ -257,14 +291,14 @@ if(isset($_POST['submit']))
                                 <div class="col-md-4 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">State of Origin</label>
-                                        <input type="text" class="form-control" name="origin" />
+                                        <input type="text" class="form-control" name="morigin" />
                                     </div>
                                 </div>
             
                                 <div class="col-md-4 col-lg-3">
                                         <div class="form-group">
                                             <label class="control-label">Tribe/Ethnicity</label>
-                                            <input type="text" class="form-control" name="tribe" />
+                                            <input type="text" class="form-control" name="mtribe" />
                                         </div>
                                     </div>
 
@@ -274,21 +308,21 @@ if(isset($_POST['submit']))
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label class="control-label">Occupation</label>
-                                        <input type="text" class="form-control" name="occupation" />
+                                        <input type="text" class="form-control" name="moccupation" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-lg-3">
                                         <div class="form-group">
                                             <label class="control-label">Phone Number</label>
-                                            <input type="text" class="form-control" name="phone" />
+                                            <input type="text" class="form-control" name="mphone" />
                                         </div>
                                     </div>
 
                                 <div class="col-md-5 col-lg-6">
                                     <div class="form-group">
                                         <label class="control-label">Home of Residence Address</label>
-                                        <textarea type="text" class="form-control" name="address"></textarea>
+                                        <textarea type="text" class="form-control" name="maddress"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -313,28 +347,28 @@ if(isset($_POST['submit']))
                                         <div class="col-md-3 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Last Name</label>
-                                                <input type="text" class="form-control" name="lastname" />
+                                                <input type="text" class="form-control" name="fln" />
                                             </div>
                                         </div>
                     
                                         <div class="col-md-4 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">First Name</label>
-                                                <input type="text" class="form-control" name="firstname" />
+                                                <input type="text" class="form-control" name="ffn" />
                                             </div>
                                         </div>
                     
                                         <div class="col-md-3 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Middle Name</label>
-                                                <input type="text" class="form-control" name="middlename" />
+                                                <input type="text" class="form-control" name="fmn" />
                                             </div>
                                         </div>
         
                                         <div class="col-md-3 col-lg-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Age</label>
-                                                    <input type="number" class="form-control" name="age" />
+                                                    <input type="number" class="form-control" name="fage" />
                                                 </div>
                                         </div>
                     
@@ -344,7 +378,7 @@ if(isset($_POST['submit']))
                                         <div class="col-md-2 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Marrital Status</label>
-                                                <select type="text" class="form-control" name="status">
+                                                <select type="text" class="form-control" name="fstatus">
                                                     <option>Single</option>
                                                     <option>Married</option>
                                                     <option>Separated</option>
@@ -357,7 +391,7 @@ if(isset($_POST['submit']))
                                         <div class="col-md-3 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Nationality</label>
-                                                <select type="text" class="form-control" name="nationality">
+                                                <select type="text" class="form-control" name="fnationality">
                                                     <option>Nigerian</option>
                                                     <option>Non-Nigerian</option>
                                                 </select>
@@ -367,14 +401,14 @@ if(isset($_POST['submit']))
                                         <div class="col-md-4 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">State of Origin</label>
-                                                <input type="text" class="form-control" name="origin" />
+                                                <input type="text" class="form-control" name="forigin" />
                                             </div>
                                         </div>
                     
                                         <div class="col-md-4 col-lg-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Tribe/Ethnicity</label>
-                                                    <input type="text" class="form-control" name="tribe" />
+                                                    <input type="text" class="form-control" name="ftribe" />
                                                 </div>
                                             </div>
         
@@ -384,21 +418,21 @@ if(isset($_POST['submit']))
                                         <div class="col-md-3 col-lg-3">
                                             <div class="form-group">
                                                 <label class="control-label">Occupation</label>
-                                                <input type="text" class="form-control" name="occupation" />
+                                                <input type="text" class="form-control" name="foccupation" />
                                             </div>
                                         </div>
         
                                         <div class="col-md-3 col-lg-3">
                                                 <div class="form-group">
                                                     <label class="control-label">Phone Number</label>
-                                                    <input type="text" class="form-control" name="phone" />
+                                                    <input type="text" class="form-control" name="fphone" />
                                                 </div>
                                             </div>
         
                                         <div class="col-md-5 col-lg-6">
                                             <div class="form-group">
                                                 <label class="control-label">Home of Residence Address</label>
-                                                <textarea type="text" class="form-control" name="address"></textarea>
+                                                <textarea type="text" class="form-control" name="faddress"></textarea>
                                             </div>
                                         </div>
                                     </div>
