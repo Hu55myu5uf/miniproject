@@ -48,7 +48,7 @@ if(isset($_POST['submit']))
      '".$_POST["nationality"]."','".$_POST["origin"]."',
      '".$_POST["tribe"]."','".$_POST["occupation"]."','".$_POST["phone"]."','".$_POST["address"]."')";
     
-
+    
     
 
     $run_query = mysqli_query($conn,$sqlb);
@@ -63,10 +63,6 @@ if(isset($_POST['submit']))
     else{
         echo "<script>alert('Submitted')</script>";
     }
-
-   // $babygen = mysql_query($conn,$sqlm);
-   // $babygen = mysql_query($conn,$sqlf);
-
 }
 
 
