@@ -6,7 +6,102 @@ if(isset($_POST['submit']))
 {
 
 
-   $sql = "INSERT INTO `babyregister`(`s/n`, `id`, `last_name`, `first_name`, `middle_name`, `dob`, `poc`, 
+        $idgenl =$_REQUEST['ln'];
+        $idgenf =$_REQUEST['fn'];
+        $idgenm =$_REQUEST['mn'];
+        $idgeng =$_REQUEST['gender'];
+        $idgend =$_REQUEST['dob'];
+        $a = substr($idgenl,0,1);
+        $b = substr($idgenf,0,1);
+        $c = substr($idgenm,0,1);
+        $d = substr($idgeng,0,1);
+        $e = substr($idgend,0,1);
+
+        
+ 
+        $bbyid = $a.$b.$c.$d.$e;
+
+
+
+        $sn = NULL;
+        $id =NULL;
+        $lastname =$_POST['ln'];
+        $firstname =$_POST['fn'];
+        $middlename =$_POST['mn'];
+        $dob =$_POST['dob'];
+        $poc =$_POST['poc'];  
+        $lga =$_POST['lga'];
+        $state =$_POST['state'];
+        $gender =$_POST['gender'];
+        $weight =$_POST['weight'];
+        $dt =$_POST['dt'];
+        $mlastname =$_POST['mln'];
+        $mfirstname =$_POST['mfn'];
+        $mmiddlename =$_POST['mmn'];
+        $mage =$_POST['aaboc'];
+        $mstatus =$_POST['mstatus'];
+        $mnationality =$_POST['mnationality'];
+        $morigin =$_POST['morigin'];
+        $mtribe =$_POST['mtribe'];
+        $moccupation =$_POST['moccupation'];
+        $mphone =$_POST['mphone'];
+        $maddress =$_POST['maddress'];
+        $flastname =$_POST['fln'];
+        $ffirstname =$_POST['ffn'];
+        $fmiddlename =$_POST['fmn'];
+        $fage =$_POST['fage'];
+        $fstatus =$_POST['fstatus'];
+        $fnationality =$_POST['fnationality'];
+        $forigin =$_POST['forigin'];
+        $ftribe =$_POST['ftribe'];
+        $foccupation =$_POST['foccupation'];
+        $fphone =$_POST['fphone'];
+        $faddress =$_POST['faddress'];
+
+
+        $sql = "INSERT INTO `babyregister`(`sn`, `id`, `last_name`, `first_name`, `middle_name`, `dob`, `poc`, 
+        `lga`, `state`, `gender`, `weight`, `delivery_time`, `mlast_name`, `mfirst_name`, `mmiddle_name`, 
+        `mage`, `mstatus`, `mnationality`, `morigin`, `mtribe`, `moccupation`, `mphone`, `maddress`, `flast_name`, 
+        `ffirst_name`, `fmiddle_name`, `fage`, `fstatus`, `fnationality`, `forigin`, `ftribe`, `foccupation`, `fphone`, 
+        `faddress`) VALUES ('$sn','$bbyid','$lastname','$firstname','$middlename','$dob','$poc','$lga','$state','$gender',
+        '$weight','$dt','$mlastname','$mfirstname','$mmiddlename','$mage','$mstatus','$mnationality','$morigin','$mtribe',
+        '$moccupation','$mphone','$maddress','$flastname','$ffirstname','$fmiddlename','$fage','$fstatus','$fnationality',
+        '$forigin','$ftribe','$foccupation','$fphone','$faddress')";
+
+         $run_query = mysqli_query($conn , $sql);
+
+
+
+
+
+
+
+
+
+         
+
+require('fpdf/fpdf.php');
+
+$pdf = new FPDF('p','mm','A4');  
+
+$pdf->AddPage();
+
+$pdf->SetFont('Arial','B',14);
+
+//Cell(width , height , text , border , end line , [align] )
+
+    $pdf->Cell(190,10,$poc,1,1,'C');
+
+
+
+
+
+
+$pdf->Output();
+
+
+    /*
+   $sql = "INSERT INTO `babyregister`(`sn`, `id`, `last_name`, `first_name`, `middle_name`, `dob`, `poc`, 
    `lga`, `state`, `gender`, `weight`, `delivery_time`, `mlast_name`, `mfirst_name`, `mmiddle_name`, 
    `mage`, `mstatus`, `mnationality`, `morigin`, `mtribe`, `moccupation`, `mphone`, `maddress`, `flast_name`, 
    `ffirst_name`, `fmiddle_name`, `fage`, `fstatus`, `fnationality`, `forigin`, `ftribe`, `foccupation`, `fphone`, 
@@ -23,8 +118,8 @@ if(isset($_POST['submit']))
    $run_query = mysqli_query($conn,$sql);
 
 
-
-    /*
+/*
+   
     $sqlb = "INSERT INTO `child`(`id`, `last_name`, `first_name`, `middle_name`, `dob`, 
     `place_of_occurance`, `local_government`, `state`, `gender`, `weight`, `delivery_time`) VALUES
      (NULL,'".$_POST["ln"]."','".$_POST["fn"]."','".$_POST["mn"]."',
@@ -60,9 +155,10 @@ if(isset($_POST['submit']))
       
         echo "<script>alert('Invalid Database Insertion')</script>";
     }   
-    else{
-        echo "<script>alert('Submitted')</script>";
-    }
+    
+   // else{
+     //   echo "<script>alert('Submitted')</script>";
+   // }
 }
 
 
@@ -443,8 +539,10 @@ if(isset($_POST['submit']))
             <div class="row">
                 <div class="col-md-6 col-lg-12">
                     <div class="pull-right">
-                        <input type="submit" name="submit" value="Submit" class="btn btn-info" id="btnSubmit">
-                        <input type="submit" name="submit" value="Generate Birth Certificate" class="btn btn-info" id="btnGenerate">
+                    <a id="btnSubmit">
+			        <button class="btn btn-info" type="submit" name="submit">Submit And Generate Certificate</button>
+			        </a>
+    
                     </div>
                 </div>
             </div>
