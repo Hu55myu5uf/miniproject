@@ -71,35 +71,6 @@ if(isset($_POST['submit']))
          $run_query = mysqli_query($conn , $sql);
 
 
-
-
-
-
-
-
-
-         
-
-require('fpdf/fpdf.php');
-
-$pdf = new FPDF('p','mm','A4');  
-
-$pdf->AddPage();
-
-$pdf->SetFont('Arial','B',14);
-
-//Cell(width , height , text , border , end line , [align] )
-
-    $pdf->Cell(190,10,$poc,1,1,'C');
-
-
-
-
-
-
-$pdf->Output();
-
-
     /*
    $sql = "INSERT INTO `babyregister`(`sn`, `id`, `last_name`, `first_name`, `middle_name`, `dob`, `poc`, 
    `lga`, `state`, `gender`, `weight`, `delivery_time`, `mlast_name`, `mfirst_name`, `mmiddle_name`, 
@@ -156,9 +127,9 @@ $pdf->Output();
         echo "<script>alert('Invalid Database Insertion')</script>";
     }   
     
-   // else{
-     //   echo "<script>alert('Submitted')</script>";
-   // }
+    else{
+       echo "<script>alert('Submitted')</script>";
+    }
 }
 
 
@@ -204,7 +175,7 @@ $pdf->Output();
 	</header>
 	<!-- /header -->
 	
-<form method="post">
+<form method="post" action = "">
     <div class="container">
             <div id="accordion">
                 <div class="row">
@@ -539,7 +510,7 @@ $pdf->Output();
             <div class="row">
                 <div class="col-md-6 col-lg-12">
                     <div class="pull-right">
-                    <a id="btnSubmit">
+                    <a href="" id="btnSubmit">
 			        <button class="btn btn-info" type="submit" name="submit">Submit And Generate Certificate</button>
 			        </a>
     

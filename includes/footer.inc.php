@@ -5,7 +5,7 @@
 				<div class="col-lg-3 col-md-12">
 					<p>
 						
-							<h3 id="reg"><a href="index.html" title=>BabyRegister</a></h3>
+							<h3 id="reg"><a href="index.php" title=>BabyRegister</a></h3>
 					
 					</p>
 				</div>
